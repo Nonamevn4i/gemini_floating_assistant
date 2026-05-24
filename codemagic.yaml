@@ -1,0 +1,13 @@
+workflows:
+  android-workflow:
+    name: Android Workflow
+
+    environment:
+      flutter: stable
+
+    scripts:
+      - flutter pub get
+      - flutter build apk --release --dart-define=GEMINI_API_KEY=$GEMINI_API_KEY
+
+    artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
